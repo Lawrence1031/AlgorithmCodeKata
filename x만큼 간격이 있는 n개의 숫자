@@ -1,0 +1,16 @@
+public class Solution {
+    public long[] solution(long x, int n) {
+        long[] answer = new long[n];
+        long a = x;
+        long i = 0;
+        
+        while(i < n)
+        {
+            answer[i] = a;
+            a += x;
+            i++;
+        }
+        
+        return answer;        
+    }
+}
