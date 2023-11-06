@@ -1,0 +1,27 @@
+using System;
+using System.Linq;
+
+public class Solution {
+    public int[] solution(int[] arr, int divisor) {
+        int[] answer = new int[0];
+        
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] % divisor == 0)
+            {
+                answer = answer.Append(arr[i]).ToArray();
+            }
+        }
+        
+        if (answer.Length == 0)
+        {
+            answer = answer.Append(-1).ToArray();
+        }
+        else
+        {
+            Array.Sort(answer);
+        }
+        
+        return answer;
+    }
+}
