@@ -1,0 +1,18 @@
+using System;
+
+public class Solution {
+    public long[] solution(long n) {
+        
+        double a = Math.Log10(n);
+        long b = (int)Math.Truncate(a) + 1;
+        long[] answer = new long[b];
+        
+        for (int i = 1; i <= b; i++)
+        {
+            answer[i-1] = n % 10;
+            n = n / 10;
+        }     
+        
+        return answer;
+    }
+}
