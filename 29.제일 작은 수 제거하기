@@ -1,0 +1,27 @@
+using System;
+using System.Linq;
+
+public class Solution {
+    public int[] solution(int[] arr) {
+        
+        int min = arr.Min(); 
+        int pos = Array.IndexOf(arr, min);
+        
+        for (int i = pos; i < arr.Length - 1; i++)
+        {
+            arr[i] = arr[i+1];
+        }
+        
+        Array.Resize(ref arr, arr.Length - 1);
+        
+        int [] answer = new int[arr.Length];
+        Array.Copy(arr, answer, arr.Length);
+                
+        if (answer.Length == 0)
+        {
+            answer = new int[1]{-1};
+        }
+        
+        return answer;
+    }
+}
