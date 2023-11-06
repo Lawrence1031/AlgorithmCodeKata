@@ -1,0 +1,15 @@
+using System;
+
+public class Solution {
+    public long solution(long n) {
+        long answer = 0;
+        
+        char[] result = n.ToString().ToCharArray();
+        Array.Sort(result);
+        Array.Reverse(result);
+        string reversed = new string(result);
+        answer = long.Parse(reversed);
+        
+        return answer;
+    }
+}
