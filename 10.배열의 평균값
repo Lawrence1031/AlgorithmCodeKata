@@ -1,0 +1,14 @@
+using System;
+using System.Linq;
+
+public class Solution {
+    public double solution(int[] numbers) {
+        double answer = 0;
+        
+        double sum = numbers.Sum();
+        
+        answer = sum / numbers.Length;    
+        
+        return answer;
+    }
+}
