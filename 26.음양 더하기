@@ -1,0 +1,25 @@
+using System;
+
+public class Solution {
+    public int solution(int[] absolutes, bool[] signs) {
+        int answer = 0;
+        int a = 0;
+        
+        for (int i = 0; i < absolutes.Length; i++)
+        {
+            if (signs[i])
+            {
+                a = absolutes[i];
+                answer += a;
+            }
+            else
+            {
+                a = absolutes[i];
+                answer -= a;
+            }
+        }
+        
+        
+        return answer;
+    }
+}
