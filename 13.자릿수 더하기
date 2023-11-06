@@ -1,0 +1,21 @@
+using System;
+
+public class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        int x = n;
+        int s = 0;
+        
+        double a = Math.Log10(n);
+        int b = (int)Math.Truncate(a);
+        
+        for (int i = b; i >= 0; i--)
+        {
+            s = (int)(x / Math.Pow(10, i));
+            x = (int)(x % Math.Pow(10, i));
+            answer += s;
+        }     
+        
+        return answer;
+    }
+}
