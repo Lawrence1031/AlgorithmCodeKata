@@ -1,0 +1,14 @@
+using System;
+
+public class Solution {
+    public int solution(float num1, int num2) {
+        int answer = 0;
+        float result = 0.000f;
+        
+        result = num1 / num2;
+        
+        answer = (int)(result * 1000);
+        
+        return answer;
+    }
+}
