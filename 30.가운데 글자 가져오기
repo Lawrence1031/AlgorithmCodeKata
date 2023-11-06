@@ -1,0 +1,19 @@
+public class Solution {
+    public string solution(string s) {
+        string answer = "";
+        char[] charArray = s.ToCharArray();
+        int len = charArray.Length;
+        int mid = len / 2;
+        
+        if (len % 2 == 1)
+        {
+            answer = s[(int)mid].ToString();
+        }
+        else
+        {
+            answer = s[(int)mid - 1] + s[(int)mid].ToString();
+        }
+                
+        return answer;
+    }
+}
