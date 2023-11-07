@@ -1,0 +1,32 @@
+using System;
+
+public class Solution {
+    public int solution(int left, int right) {
+        int answer = 0;
+        int cnt = 0;
+        int result = 0;
+        int cal = 0;
+        
+        for (int i = left; i <= right; i++)
+        {
+            for (int j = 1; j <= i; j++)
+               if (i % j == 0)
+               {
+                   cnt += 1;
+               }
+            cal = (cnt % 2 == 0) ? i : i * (-1);
+            answer += cal;
+            cnt = 0;            
+        }
+        
+        
+        
+        // 약수의 갯수 찾기 -> 홀수인지 짝수인지 판단하기
+        // 짝수는 더하고 홀수는 빼기 -> 3항 연산 짝수? ; *1 ; *(-1) 을 사용해보자
+        
+        // for (int i = 1; i <= n; i++)
+        // if n % i == 0; cnt +=1
+        
+        return answer;
+    }
+}
