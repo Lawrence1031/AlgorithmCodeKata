@@ -1,0 +1,20 @@
+public class Solution {
+    public string solution(int n) {
+        string answer = "";
+        int cal = n / 2;
+        
+        if (n % 2 == 0)
+        {
+            for (int i = 0; i < cal; i++)
+                answer += "수박";
+        }
+        else
+        {
+            for (int i = 0; i < cal; i++)
+                answer += "수박";
+            answer += "수";
+        }
+        
+        return answer;
+    }
+}
