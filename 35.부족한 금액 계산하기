@@ -1,0 +1,19 @@
+using System;
+
+class Solution
+{
+    public long solution(int price, long money, int count)
+    {
+        long cM = money; // currentMoney
+        
+        for (int i = 1; i <= count; i++)
+        {
+            cM = cM - (price * i);
+        }
+        
+        if (cM < 0)
+            return cM * (-1);
+        else
+            return 0;
+    }
+}
