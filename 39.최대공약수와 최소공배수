@@ -1,0 +1,33 @@
+public class Solution {
+    public int[] solution(int n, int m) {
+        int GCD = 0;
+        int LCM = 0;
+        int bigN = 0;
+        int smallN = 0;
+        
+        if (n >= m)
+        {
+            bigN = n;
+            smallN = m;
+        }            
+        else
+        {
+            bigN = m;
+            smallN = n;
+        }
+        
+        for (int i = 1; i <= smallN; i++)
+        {
+            if (bigN % i == 0 && smallN % i == 0)
+                GCD = i;            
+        }
+        
+        LCM = n * m / GCD;
+        
+        
+        int[] answer = new int[2]{GCD, LCM};
+        
+        return answer;
+        
+    }
+}
