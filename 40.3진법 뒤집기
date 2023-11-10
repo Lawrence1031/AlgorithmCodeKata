@@ -1,0 +1,31 @@
+public int solution(int n) {
+        int answer = 0;
+        string str1 = ConvertToTernary(n);
+        string str2 = new string(str1.Reverse().ToArray());
+        answer = ConvertFromTernary(str2);
+        
+        return answer;
+    }
+    
+    private string ConvertToTernary(int number)
+    {
+        if (number == 0) return "0";
+        string result = "";
+        while (number > 0)
+        {
+            result = (number % 3) + result;
+            number = number / 3;
+        }
+        return result;
+    }
+    
+    private int ConvertFromTernary(string number)
+    {
+        int result = 0; 
+        for (int i = 0; i < number.Length; i++)
+        {
+            int digit = number[i] - '0';
+            result = result * 3 + digit;
+        }
+        return result;
+    }
