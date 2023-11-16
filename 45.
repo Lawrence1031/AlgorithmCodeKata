@@ -1,0 +1,42 @@
+using System;
+using System.Text;
+
+public class Solution {
+    public string solution(string s, int n) {
+        string answer = "";
+        
+        // 1만큼 민다 -> string에 해당하는 값을 더한다
+        // 주어진 s를 int 배열로 바꾼 뒤에
+        // 배열의 각 수에 1씩 더하고
+        // 이를 다시 string으로 변경
+        
+        string[] newWord = new string[s.Length];
+        char[] result = new char[s.Length];
+        int [] newInt = new int[s.Length];
+        int midInt = 0;
+        
+        for (int i = 0; i < s.Length; i++)
+        {
+            newInt[i] = Convert.ToInt32(s[i]);
+            midInt = newInt[i] + n;
+            if (midInt == 32 + n)
+            {
+                midInt = 32;
+            }
+            if (91 > newInt[i] && midInt > 90)
+            {
+                midInt = midInt - 26;
+            }
+            if (midInt > 122)
+            {
+                midInt = midInt - 26;
+            }
+            newInt[i] = midInt;
+            result[i] = Convert.ToChar(newInt[i]);
+        }
+        
+        answer = string.Concat(result);
+        
+        return answer;
+    }
+}
