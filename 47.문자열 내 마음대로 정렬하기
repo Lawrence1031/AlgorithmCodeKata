@@ -14,9 +14,7 @@ public class Solution {
         
         // OrderBy를 쓰면 될거 같음
         
-        string[] newWord = strings;
-        
-        answer = newWord.OrderBy(s => s[n]).ThenBy(s => s).ToArray();
+        answer = strings.OrderBy(s => s[n]).ThenBy(s => s).ToArray();
         
         return answer;
     }
