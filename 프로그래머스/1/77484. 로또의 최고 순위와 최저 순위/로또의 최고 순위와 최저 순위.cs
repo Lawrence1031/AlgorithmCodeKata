@@ -41,10 +41,6 @@ public class Solution {
                 answer[i] = 6;
         }
         
-        
-        
-        
-        
         return answer;
     }
 }
