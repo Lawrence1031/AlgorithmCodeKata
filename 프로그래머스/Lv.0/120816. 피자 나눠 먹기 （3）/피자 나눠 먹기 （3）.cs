@@ -6,7 +6,7 @@ public class Solution {
         double num = (double)n / slice;
         double result = Math.Ceiling(num);
         
-        answer = (int)result;
+        answer = (int)Math.Ceiling((double)num);
         
         return answer;
     }
