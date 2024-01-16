@@ -6,11 +6,7 @@ public class Solution {
         char[] splitChars = {'a', 'b', 'c'};
         
         string[] answer = myStr.Split(splitChars, System.StringSplitOptions.RemoveEmptyEntries);
-        string[] emptyArr = {"EMPTY"};
         
-        if (answer.Length == 0)
-            answer = emptyArr;
-        
-        return answer;
+        return answer.Length == 0 ? new string[1]{ "EMPTY" } : answer; 
     }
 }
