@@ -14,7 +14,7 @@ public class Solution {
     static public int[] Develop(int[] progresses, int[] speeds)
     {
         List<int> Comp = new List<int>();
-        List<int> costTime = new List<int>();
+        List<int> releaseCount  = new List<int>();
 
         for (int i = 0; i < progresses.Length; i++)
         {
@@ -26,17 +26,17 @@ public class Solution {
         {
             int curDay = Comp[0];
             Comp.RemoveAt(0);
-            int cost = 1;
+            int cnt = 1;
 
             while (Comp.Count > 0 && Comp[0] <= curDay)
             {
-                cost++;
+                cnt++;
                 Comp.RemoveAt(0);
             }
 
-            costTime.Add(cost);
+            releaseCount.Add(cnt);
         }
 
-        return costTime.ToArray();
+        return releaseCount .ToArray();
     }
 }
