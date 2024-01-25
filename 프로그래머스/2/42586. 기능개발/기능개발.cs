@@ -13,30 +13,30 @@ public class Solution {
     
     static public int[] Develop(int[] progresses, int[] speeds)
     {
-        List<int> Comp = new List<int>();
-        List<int> releaseCount  = new List<int>();
+        Queue<int> queue = new Queue<int>();
+        List<int> costTime = new List<int>();
 
         for (int i = 0; i < progresses.Length; i++)
         {
-            int days = (100 - progresses[i] + speeds[i] - 1) / speeds[i];
-            Comp.Add(days);
+            int cnt = (100 - progresses[i] + speeds[i] - 1) / speeds[i];
+
+            queue.Enqueue(cnt);
         }
 
-        while (Comp.Count > 0)
+        while (queue.Count > 0)
         {
-            int curDay = Comp[0];
-            Comp.RemoveAt(0);
+            int costDay = queue.Dequeue();
             int cnt = 1;
 
-            while (Comp.Count > 0 && Comp[0] <= curDay)
+            while (queue.Count > 0 && queue.Peek() <= costDay)
             {
                 cnt++;
-                Comp.RemoveAt(0);
+                queue.Dequeue();
             }
 
-            releaseCount.Add(cnt);
+            costTime.Add(cnt);
         }
 
-        return releaseCount .ToArray();
+        return costTime.ToArray();
     }
 }
