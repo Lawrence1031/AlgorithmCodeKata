@@ -1,33 +1,30 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 public class Solution {
     public string[] solution(string[] picture, int k) {
         string[] answer = new string[] {};
         List<string> picList = new List<string>();
         
-        string picStr = "";
-        
-        foreach (string str in picture)
+        foreach (string txt in picture)
         {
-            foreach (char c in str)
+            StringBuilder sb = new StringBuilder();
+            
+            foreach (char c in txt)
             {
-                for (int i = 0; i < k; i++)
-                {
-                     picStr += c;
-                }
-                
+                sb.Append(new string(c, k));
             }
+            
+            string result = sb.ToString();
             
             for (int i = 0; i < k; i++)
             {
-                picList.Add(picStr);
+                picList.Add(result);
             }
-            picStr = "";
         }
         
         answer = picList.ToArray();
-        
         
         return answer;
     }
