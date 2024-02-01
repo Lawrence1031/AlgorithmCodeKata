@@ -6,7 +6,7 @@ class Solution
     public int solution(int N, int[,] road, int K)
     {
         int answer = 0;
-        const int maxDistance = int.MaxValue;
+        const int maxDistance = 5000001;
 
         var graph = new Dictionary<int, List<Tuple<int, int>>>();
         var distances = new Dictionary<int, int>();
