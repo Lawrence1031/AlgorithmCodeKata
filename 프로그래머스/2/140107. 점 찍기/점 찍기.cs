@@ -10,7 +10,6 @@ public class Solution {
             long yy = (long)((long)d * (long)d - ii);
             int y = (int)Math.Sqrt(yy);
             answer += (y / k) + 1;
-
         }
         
         return answer;
