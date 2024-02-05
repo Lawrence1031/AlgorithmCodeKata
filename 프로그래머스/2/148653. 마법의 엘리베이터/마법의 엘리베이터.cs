@@ -43,26 +43,4 @@ public class Solution {
         
         return answer;
     }
-    
-    private int answer1(int storey)
-    {
-        int answer = 0;
-        List<int> intList = storey.ToString()
-                        .Select(i => int.Parse(i.ToString()))
-                        .ToList();
-
-        intList.Reverse();
-
-        // 이 방법보다 아래의 방법이 효과적
-
-        List<int> llist = new List<int>();
-
-        while (storey != 0)
-        {
-            llist.Add(storey % 10);
-            storey /= 10;
-        }
-
-        return answer;
-    }
 }
