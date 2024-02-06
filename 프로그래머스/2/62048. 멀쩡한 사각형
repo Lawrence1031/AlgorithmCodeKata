@@ -1,0 +1,20 @@
+using System;
+
+public class Solution {
+    public long solution(int w, int h) {
+        long answer = 0;
+
+        answer = ((long)w * (long)h - w - h + GCD(w, h));
+        return answer;
+    }
+    static private int GCD(int w, int h)
+    {
+        while (h != 0)
+        {
+            int tmp = h;
+            h = w % h;
+            w = tmp;
+        }
+        return w;
+    }
+}
