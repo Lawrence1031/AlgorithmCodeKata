@@ -32,14 +32,10 @@ public class Solution {
         {
             if (num > 1)
             {
-                answer += CountTorque(num);
+                answer += (long)num * (num - 1) / 2;
             }
         }
         
         return answer;
-    }
-    private static long CountTorque(int num)
-    {
-        return (long)num * (num - 1) / 2;
     }
 }
