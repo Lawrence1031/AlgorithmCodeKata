@@ -7,7 +7,7 @@ public class Solution {
         long r1Sqaure = (long)Math.Pow(r1, 2);
         long r2Sqaure = (long)Math.Pow(r2, 2);
 
-        for (int x = 1; x < r2; x++)
+        for (int x = 1; x <= r2; x++)
         {
             long xSquare = (long)Math.Pow(x, 2);
             int yMax = (int)Math.Sqrt(r2Sqaure - xSquare);
