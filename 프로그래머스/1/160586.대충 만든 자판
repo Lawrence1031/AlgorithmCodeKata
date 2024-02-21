@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+
+public class Solution {
+    public int[] solution(string[] keymap, string[] targets) {
+        int[] answer = new int[] {};
+        List<int> answerList = new List<int>();
+        Dictionary<char, int> charMap = new Dictionary<char, int>();
+
+        for (char c = 'A'; c <= 'Z'; c++)
+        {
+            int defalut = int.MaxValue;
+
+            foreach (var keyString in keymap)
+            {
+                int index = keyString.IndexOf(c);
+                if (index != -1 && index < defalut)
+                {
+                    defalut = index;
+                }
+            }
+            if (defalut != int.MaxValue)
+            {
+                charMap.Add(c, defalut + 1);
+            }
+        }
+
+        for (int i = 0; i < targets.Length; i++)
+        {
+            int sum = 0;
+            for (int j = 0; j < targets[i].Length; j++)
+            {
+                if (charMap.ContainsKey(targets[i][j]))
+                {
+                    sum += charMap[targets[i][j]];
+                }
+                else
+                {
+                    sum = -1;
+                    break;
+                }
+            }
+            answerList.Add(sum);
+        }
+
+        answer = answerList.ToArray();
+        return answer;
+    }
+}
