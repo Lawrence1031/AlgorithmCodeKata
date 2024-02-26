@@ -53,25 +53,7 @@ public class Solution {
         }
         return a;
     }
-
-    public static List<int> FindDivisors(int number)
-    {
-        List<int> divisors = new List<int>();
-        for (int i = 1; i <= Math.Sqrt(number); i++)
-        {
-            if (number % i == 0)
-            {
-                divisors.Add(i);
-                if (i != number / i)
-                {
-                    divisors.Add(number / i);
-                }
-            }
-        }
-        divisors.Sort();
-        return divisors;
-    }
-
+    
     public static bool IsDivisible(int num, int[] array)
     {
         foreach (int i in array)
