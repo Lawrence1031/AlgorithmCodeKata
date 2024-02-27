@@ -1,7 +1,5 @@
 using System;
 
-
-
 public class Solution {
     private int[] board;
     private int answer;
@@ -14,6 +12,7 @@ public class Solution {
         SolveNQueen(0);      
         return answer;
     }
+    
     public bool IsSafe(int row, int col)
     {
         for (int i = 0; i < row; i++)
@@ -42,6 +41,5 @@ public class Solution {
                 SolveNQueen(row + 1);
             }
         }
-    }
-    
+    }    
 }
