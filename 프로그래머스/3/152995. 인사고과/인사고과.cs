@@ -23,7 +23,8 @@ public class Solution {
             }
         }
         
-        var filteredScoresData = new List<Tuple<int, int, int>>();
+        var newScoresData = new List<Tuple<int, int, int>>();
+        
         foreach (var sd in scoresData)
         {
             bool isEligible = true;
@@ -37,20 +38,20 @@ public class Solution {
             }
             if (isEligible)
             {
-                filteredScoresData.Add(sd);
+                newScoresData.Add(sd);
             }
         }
 
-        bool canReceiveIncentive = true;
-        foreach (var sd in filteredScoresData)
+        bool isIncentive = true;
+        foreach (var sd in newScoresData)
         {
             if (wanhoScore1 < sd.Item1 && wanhoScore2 < sd.Item2)
             {
-                canReceiveIncentive = false;
+                isIncentive = false;
                 break;
             }
         }
-        answer = canReceiveIncentive ? filteredScoresData.Count + 1 : -1;
+        answer = isIncentive ? newScoresData.Count + 1 : -1;
         
         return answer;        
     }
