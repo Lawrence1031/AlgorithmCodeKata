@@ -24,14 +24,14 @@ public class Solution {
 
         for (int i = 0; i < edges.GetLength(0); i++)
         {
-            int parentIndex = edges[i, 0];
-            int childIndex = edges[i, 1];
+            int parent = edges[i, 0];
+            int child = edges[i, 1];
 
-            if (visited.Contains(parentIndex) && !visited.Contains(childIndex))
+            if (visited.Contains(parent) && !visited.Contains(child))
             {
-                visited.Add(childIndex);
+                visited.Add(child);
 
-                if (info[childIndex] == 0)
+                if (info[child] == 0)
                 {
                     DFS(sheepCount + 1, wolfCount, visited, info, edges, ref answer);
                 }
@@ -39,7 +39,7 @@ public class Solution {
                 {
                     DFS(sheepCount, wolfCount + 1, visited, info, edges, ref answer);
                 }
-                visited.Remove(childIndex);
+                visited.Remove(child);
             }
         }
     }
