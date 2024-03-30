@@ -1,30 +1,21 @@
 using System;
-using System.Text;
 using System.Collections.Generic;
 
 public class Solution {
     public string[] solution(string my_str, int n) {
         string[] answer = new string[] {};
         List<string> result = new List<string>();
-        StringBuilder sb = new StringBuilder();
         
-        for (int i = 0; i < my_str.Length; i++)
+        for (int i = 0; i < my_str.Length; i += n)
         {
-            if (sb.Length == n)
+            if (i + n <= my_str.Length)
             {
-                result.Add(sb.ToString());
-                sb.Clear();
-                sb.Append(my_str[i]);
+                result.Add(my_str.Substring(i, n));
             }
             else
             {
-                sb.Append(my_str[i]);
+                result.Add(my_str.Substring(i));
             }
-        }
-        
-        if (sb.Capacity != 0)
-        {
-            result.Add(sb.ToString());
         }
         
         answer = result.ToArray();
