@@ -3,42 +3,22 @@ using System;
 public class Solution {
     public int solution(int[] array, int n) {
         int answer = 0;
-        Array.Sort(array);
         
-        int left = 0;
-        int right = array.Length - 1;
-        int mid = 0;
+        int closestNum = array[0];
+        int diff = Math.Abs(n - array[0]);
         
-        while (left <= right)
+        foreach (int num in array)
         {
-            mid = left + (right - left) / 2;
+            int curDiff = Math.Abs(n - num);
             
-            if (array[mid] == n)
+            if (curDiff < diff || (curDiff == diff && num < closestNum))
             {
-                answer = array[mid];
-                return answer;
-            }
-            else if (array[mid] < n)
-            {
-                left = mid + 1;
-            }
-            else
-            {
-                right = mid - 1;
+                closestNum = num;
+                diff = curDiff;
             }
         }
         
-        int idx = mid;
-        if (mid > 0 && Math.Abs(array[mid - 1] - n) <= Math.Abs(array[mid] - n))
-        {
-            idx = mid - 1;
-        }
-        if (mid < array.Length - 1 && Math.Abs(array[mid + 1] - n) < Math.Abs(array[idx] - n))
-        {
-            idx = mid + 1;
-        }
-        
-        answer = array[idx];
+        answer = closestNum;
         
         return answer;
     }
