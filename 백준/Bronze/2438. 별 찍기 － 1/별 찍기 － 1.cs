@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace _2438
 {
     internal class Program
@@ -6,15 +8,13 @@ namespace _2438
         {
             string s = Console.ReadLine();
             int n = Convert.ToInt32(s);
+            StringBuilder sb = new StringBuilder();
 
             for (int i = 1; i <= n; i++)
             {
-                for (int j = 1; j <= i; j++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
+                sb.AppendLine(new string('*', i));
             }
+            Console.WriteLine(sb.ToString());
         }
     }
 }
