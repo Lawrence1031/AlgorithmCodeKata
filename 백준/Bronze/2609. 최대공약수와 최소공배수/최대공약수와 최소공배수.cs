@@ -17,25 +17,16 @@ namespace _2609
 
         static int GCD(int N, int M)
         {
-            int GCD = 1;
-            for (int i = Math.Min(N, M); i > 1; i--)
+            if (M == 0)
             {
-                if (N % i == 0 && M % i == 0)
-                {
-                    GCD = i;
-                    N = N / i;
-                    M = M / i;
-                }
+                return N;
             }
-
-            return GCD;
+            return GCD(M, N % M);
         }
 
         static int LCM(int N, int M, int GCD)
         {
-            int LCM = N * M / GCD;
-
-            return LCM;
+            return N * M / GCD;
         }
     }
 }
