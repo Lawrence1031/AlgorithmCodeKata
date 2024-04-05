@@ -5,15 +5,19 @@ namespace _15829
         static void Main(string[] args)
         {
             int L = Convert.ToInt32(Console.ReadLine());
-            int[] arr = new int[L];
-            int answer = 0;
+            long answer = 0;
+            long M = 1234567891;
+            int r = 31;
+            long rPow = 1;
 
             string s = Console.ReadLine();
 
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < L; i++)
             {
-                arr[i] = s[i] - 96;
-                answer += (arr[i] * (int)Math.Pow(31, i)) % 1234567891;
+                int charInt = s[i] - 96;
+                answer = (answer + charInt * rPow) % M;
+
+                rPow = (rPow * r) % M;
             }
 
             Console.WriteLine(answer);
