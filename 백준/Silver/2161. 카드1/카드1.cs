@@ -8,24 +8,21 @@ namespace _2161
         {
             int N = int.Parse(Console.ReadLine());
 
-            List<int> list = new List<int>();
+            Queue<int> queue = new Queue<int>();
             StringBuilder sb = new StringBuilder();
 
             for (int i = 1; i <= N; i++)
             {
-                list.Add(i);
-            }
-
-            while (list.Count > 1)
+                queue.Enqueue(i);
+            } 
+            
+            while (queue.Count > 1)
             {
-                sb.Append(list[0] + " ");
-
-                list.RemoveAt(0);
-                list.Add(list[0]);
-                list.RemoveAt(0);
+                sb.Append(queue.Dequeue() + " ");
+                queue.Enqueue(queue.Dequeue());
             }
 
-            sb.Append(list[0]);
+            sb.Append(queue.Peek());
 
             Console.WriteLine(sb.ToString());
         }
