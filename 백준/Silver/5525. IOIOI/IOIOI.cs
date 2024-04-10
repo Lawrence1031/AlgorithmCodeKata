@@ -8,15 +8,25 @@ namespace _5525
             int M = int.Parse(Console.ReadLine());
             string S = Console.ReadLine();
 
-            string PN = string.Concat(Enumerable.Repeat("IO", N)) + "I";
-
             int cnt = 0;
-            int idx = 0;
+            int pattern = 0;
 
-            while ((idx = S.IndexOf(PN, idx)) != -1)
+            for (int i = 1; i < M - 1; i++)
             {
-                cnt++;
-                idx++;
+                if (S[i - 1] == 'I' && S[i] == 'O' && S[i + 1] == 'I')
+                {
+                    pattern++;
+                    if (pattern == N)
+                    {
+                        cnt++;
+                        pattern--;
+                    }
+                    i++;
+                }
+                else
+                {
+                    pattern = 0;
+                }
             }
 
             Console.WriteLine(cnt);
