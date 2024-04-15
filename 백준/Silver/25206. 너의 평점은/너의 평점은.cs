@@ -26,7 +26,7 @@ namespace _25206
                     case "D+": num = 1.5; break;
                     case "D0": num = 1.0; break;
                     case "F": num = 0.0; break;
-                    case "P": cnt -= score; break;
+                    case "P": continue;
                 }
 
                 result += score * num;
