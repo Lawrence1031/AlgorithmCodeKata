@@ -20,7 +20,7 @@ namespace _9506
                 int cnt = 0;
                 sb.Append(n + " = ");
 
-                for (int i = 0; i < n - 1; i++)
+                for (int i = 0; i <= n / 2; i++)
                 {
                     arr[i] = n % (i + 1);
                     if (arr[i] == 0)
