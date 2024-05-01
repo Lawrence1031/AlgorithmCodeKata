@@ -5,7 +5,7 @@ namespace _2476
         static void Main(string[] args)
         {
             int N = int.Parse(Console.ReadLine());
-            int[] reward = new int[N];
+            int maxReward = 0;
 
             for (int i = 0; i < N; i++)
             {
@@ -13,26 +13,30 @@ namespace _2476
                 int num1 = int.Parse(inputs[0]);
                 int num2 = int.Parse(inputs[1]);
                 int num3 = int.Parse(inputs[2]);
+                int curReward = 0;
 
                 if (num1 == num2 && num1 == num3)
                 {
-                    reward[i] = 10000 + num1 * 1000;
+                    curReward = 10000 + num1 * 1000;
                 }
-                else if ((num1 == num2 && num1 != num3) || (num1 != num2 && num1 == num3))
+                else if (num1 == num2  || num1 == num3)
                 {
-                    reward[i] = 1000 + num1 * 100;
+                    curReward = 1000 + num1 * 100;
                 }
-                else if (num1 != num2 && num2 == num3)
+                else if (num2 == num3)
                 {
-                    reward[i] = 1000 + num2 * 100;
+                    curReward = 1000 + num2 * 100;
                 }
                 else
                 {
-                    reward[i] = Math.Max(Math.Max(num1, num2), num3) * 100;
+                    curReward = Math.Max(Math.Max(num1, num2), num3) * 100;
                 }
+
+                if (curReward >= maxReward)
+                    maxReward = curReward;
             }
 
-            Console.WriteLine(reward.Max());
+            Console.WriteLine(maxReward);
         }
     }
 }
