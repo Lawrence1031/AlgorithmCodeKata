@@ -7,24 +7,20 @@ namespace _1110
             string input = Console.ReadLine();
             int N = int.Parse(input);
 
-            int cnt = 1;
-
-            int number;
-            int newNumber;
-            string answer = "";
+            int originalNumber = N;
+            int cnt = 0;
 
             while (true)
             {
-                number = N / 10 + N % 10;
-                answer = (N % 10).ToString() + (number % 10).ToString();
-                N = int.Parse(answer);
+                int sum = (N / 10) + (N % 10);
+                N = (N % 10) * 10 + (sum % 10);
+                cnt++;
 
-                if (int.Parse(answer) == int.Parse(input))
+                if (N == originalNumber)
                 {
                     Console.WriteLine(cnt);
                     return;
                 }
-                cnt++;
             }
         }
     }
