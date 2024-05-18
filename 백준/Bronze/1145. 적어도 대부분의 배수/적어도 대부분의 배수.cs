@@ -11,7 +11,7 @@ namespace _1145
             {
                 arr[i] = int.Parse(inputs[i]);
             }
-            int startNum = arr.Min();
+            int startNum = 3;
 
             while (true)
             {
