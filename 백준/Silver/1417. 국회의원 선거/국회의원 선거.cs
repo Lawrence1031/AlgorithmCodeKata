@@ -19,23 +19,21 @@ namespace _1417
                 candidates[i] = int.Parse(Console.ReadLine());
             }
 
-            int maxVote = candidates.Max();
             int cnt = 0;
 
-            if (dasom > maxVote)
+            while (true)
             {
-                Console.WriteLine(0);
-                return;
-            }
-            else
-            {
-                while (dasom <= maxVote)
+                Array.Sort(candidates);
+                Array.Reverse(candidates);
+
+                if (dasom > candidates[0])
                 {
-                    dasom++;
-                    candidates[Array.IndexOf(candidates, maxVote)]--;
-                    maxVote = candidates.Max();
-                    cnt++;
+                    break;
                 }
+
+                dasom++;
+                candidates[0]--;
+                cnt++;
             }
 
             Console.WriteLine(cnt);
