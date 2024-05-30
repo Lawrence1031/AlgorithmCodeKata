@@ -9,12 +9,14 @@ namespace _2511
 
             int AScore = 0;
             int BScore = 0;
+            char lastWinner = 'D';
 
             for (int i = 0; i < ACards.Length; i++)
             {
                 if (ACards[i] > BCards[i])
                 {
                     AScore += 3;
+                    lastWinner = 'A';
                 }
                 else if (ACards[i] == BCards[i])
                 {
@@ -24,42 +26,21 @@ namespace _2511
                 else
                 {
                     BScore += 3;
+                    lastWinner = 'B';
                 }
             }
-
-            string winner = "";
 
             if (AScore > BScore)
             {
-                winner = "A";
+                lastWinner = 'A';
             }
             else if (AScore < BScore)
             {
-                winner = "B";
-            }
-            else
-            {
-                if (AScore == 10)
-                {
-                    winner = "D";
-                }
-                else
-                {
-                    for (int i = ACards.Length - 1; i >= 0; i--)
-                    {
-                        if (ACards[i] != BCards[i])
-                        {
-                            if (ACards[i] > BCards[i]) winner = "A";
-                            else winner = "B";
-
-                            break;
-                        }
-                    }
-                }
+                lastWinner = 'B';
             }
 
             Console.WriteLine($"{AScore} {BScore}");
-            Console.WriteLine(winner);
+            Console.WriteLine(lastWinner);
         }
     }
 }
