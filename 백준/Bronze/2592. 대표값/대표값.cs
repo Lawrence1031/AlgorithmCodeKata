@@ -5,10 +5,14 @@ namespace _2592
         static void Main(string[] args)
         {
             Dictionary<int, int> numbers = new Dictionary<int, int>();
+            int sum = 0;
+            int mode = 0;
+            int maxCnt = 0;
 
             for (int i = 0; i < 10; i++)
             {
                 int num = int.Parse(Console.ReadLine());
+                sum += num;
 
                 if (numbers.ContainsKey(num))
                 {
@@ -18,19 +22,16 @@ namespace _2592
                 {
                     numbers.Add(num, 1);
                 }
+
+                if (numbers[num] > maxCnt)
+                {
+                    maxCnt = numbers[num];
+                    mode = num;
+                }
             }
-
-            int sum = 0;
-
-            foreach (int num in numbers.Keys)
-            {
-                sum += num * numbers[num];
-            }
-
-            int maxCntNumber = numbers.First(x => x.Value == numbers.Values.Max()).Key;
 
             Console.WriteLine(sum / 10);
-            Console.WriteLine(maxCntNumber);
+            Console.WriteLine(mode);
         }
     }
 }
