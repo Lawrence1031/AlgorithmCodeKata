@@ -9,21 +9,14 @@ namespace _2774
             for (int i = 0; i < T; i++)
             {
                 string input = Console.ReadLine();
-                Dictionary<char, int> numbers = new Dictionary<char, int>();
+                HashSet<char> numbers = new HashSet<char>();
 
-                for (int j = 0; j < input.Length; j++)
+                foreach (char c in input)
                 {
-                    if (numbers.ContainsKey(input[j]))
-                    {
-                        numbers[input[j]]++;
-                    }
-                    else
-                    {
-                        numbers.Add(input[j], 1);
-                    }
+                    numbers.Add(c);
                 }
 
-                Console.WriteLine(numbers.Values.Count);
+                Console.WriteLine(numbers.Count);
             }
         }
     }
