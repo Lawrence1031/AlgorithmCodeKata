@@ -24,11 +24,13 @@ namespace _1065
                 return true;
             }
 
-            string s = n.ToString();
-
-            for (int i = 0; i < s.Length - 2; i++)
+            int diff = (n / 10 % 10) - (n % 10);
+            while (n >= 10)
             {
-                if (s[i + 1] - s[i] != s[i + 2] - s[i + 1])
+                int lastDigit = n % 10;
+                n /= 10;
+                int nextDigit = n % 10;
+                if (nextDigit - lastDigit != diff)
                 {
                     return false;
                 }
