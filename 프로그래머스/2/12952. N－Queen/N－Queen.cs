@@ -12,7 +12,6 @@ public class Solution {
         SolveNQueen(0);      
         return answer;
     }
-    
     public bool IsSafe(int row, int col)
     {
         for (int i = 0; i < row; i++)
