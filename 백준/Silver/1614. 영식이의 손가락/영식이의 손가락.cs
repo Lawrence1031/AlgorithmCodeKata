@@ -10,14 +10,7 @@ namespace _1614
 
             if (finger == 1)
             {
-                if (cnt == 0)
-                {
-                    result = 0;
-                }
-                else
-                {
-                    result = cnt * 8;
-                }
+                result = cnt == 0 ? 0 : cnt * 8;
             }
             else if (finger == 5)
             {
@@ -25,14 +18,7 @@ namespace _1614
             }
             else
             {
-                if (cnt % 2 == 1)
-                {
-                    result = cnt * 4 + (5 - finger);
-                }
-                else
-                {
-                    result = cnt * 4 + (finger - 1);
-                }
+                result = cnt * 4 + (cnt % 2 == 1 ? 5 - finger : finger - 1);
             }
 
             Console.WriteLine(result);
