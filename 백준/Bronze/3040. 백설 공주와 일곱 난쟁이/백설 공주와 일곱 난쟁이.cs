@@ -4,13 +4,14 @@ namespace _3040
     {
         static void Main(string[] args)
         {
-            List<int> dwarfs = new List<int>();
+            int[] dwarfs = new int[9];
             for (int i = 0; i < 9; i++)
             {
-                dwarfs.Add(int.Parse(Console.ReadLine()));
+                dwarfs[i] = int.Parse(Console.ReadLine());
             }
 
             int sum = dwarfs.Sum();
+            List<int> result = new List<int>();
 
             for (int i = 0; i < 9; i++)
             {
@@ -18,10 +19,15 @@ namespace _3040
                 {
                     if (sum - dwarfs[i] - dwarfs[j] == 100)
                     {
-                        dwarfs.RemoveAt(j);
-                        dwarfs.RemoveAt(i);
+                        for (int k = 0; k < 9; k++)
+                        {
+                            if (k != i && k != j)
+                            {
+                                result.Add(dwarfs[k]);
+                            }
+                        }
 
-                        foreach (int k in dwarfs)
+                        foreach (int k in result)
                         {
                             Console.WriteLine(k);
                         }
