@@ -5,22 +5,41 @@ namespace _17626
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-            int[] dp = new int[n + 1];
 
-            for (int i = 0; i <= n; i++)
+            if (IsSquare(n))
             {
-                dp[i] = i;
+                Console.WriteLine(1);
+                return;
             }
 
-            for (int i = 1; i <= n; i++)
+            for (int i = 1; i * i <= n; i++)
             {
-                for (int j = 1; j * j <= i; j++)
+                if (IsSquare(n - i * i))
                 {
-                    dp[i] = Math.Min(dp[i], dp[i - j * j] + 1);
+                    Console.WriteLine(2);
+                    return;
                 }
             }
 
-            Console.WriteLine(dp[n]);
+            for (int i = 1; i * i <= n; i++)
+            {
+                for (int j = 1; j * j <= n - i * i; j++)
+                {
+                    if (IsSquare(n - i * i - j * j))
+                    {
+                        Console.WriteLine(3);
+                        return;
+                    }
+                }
+            }
+
+            Console.WriteLine(4);
+        }
+
+        static bool IsSquare(int n)
+        {
+            int s = (int)Math.Sqrt(n);
+            return s * s == n;
         }
     }
 }
