@@ -21,14 +21,11 @@ namespace _2966
         static int AdrianAnswer(string input)
         {
             int cnt = 0;
+            string pattern = "ABC";
 
             for (int i = 0; i < input.Length; i++)
             {
-                if (i % 3 == 0 && input[i] == 'A') 
-                    cnt++;
-                else if (i % 3 == 1 && input[i] == 'B')
-                    cnt++;
-                else if (i % 3 == 2 && input[i] == 'C')
+                if (input[i] == pattern[i % 3])
                     cnt++;
             }
 
@@ -38,16 +35,11 @@ namespace _2966
         static int BrunoAnswer(string input)
         {
             int cnt = 0;
+            string pattern = "BABC";
 
             for (int i = 0; i < input.Length; i++)
             {
-                if (i % 4 == 0 && input[i] == 'B')
-                    cnt++;
-                else if (i % 4 == 1 && input[i] == 'A')
-                    cnt++;
-                else if (i % 4 == 2 && input[i] == 'B')
-                    cnt++;
-                else if (i % 4 == 3 && input[i] == 'C')
+                if (input[i] == pattern[i % 4])
                     cnt++;
             }
 
@@ -57,14 +49,11 @@ namespace _2966
         static int GoranAnswer(string input)
         {
             int cnt = 0;
+            string pattern = "CCAABB";
 
             for (int i = 0; i < input.Length; i++)
             {
-                if ((i % 6 == 0 || i % 6 == 1) && input[i] == 'C')
-                    cnt++;
-                else if ((i % 6 == 2 || i % 6 == 3) && input[i] == 'A')
-                    cnt++;
-                else if ((i % 6 == 4 || i % 6 == 5) && input[i] == 'B')
+                if (input[i] == pattern[i % 6])
                     cnt++;
             }
 
