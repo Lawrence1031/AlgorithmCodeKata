@@ -23,9 +23,18 @@ namespace _2998
 
             for (int i = 0; i < input.Length; i += 3)
             {
-                int now = int.Parse(input.Substring(i, 3));
-                int result = now / 100 * 4 + ((now % 100) / 10 * 2) + now % 10;
-                sb.Append(result.ToString());
+                string now = input.Substring(i, 3);
+                switch (now)
+                {
+                    case "000": sb.Append('0'); break;
+                    case "001": sb.Append('1'); break;
+                    case "010": sb.Append('2'); break;
+                    case "011": sb.Append('3'); break;
+                    case "100": sb.Append('4'); break;
+                    case "101": sb.Append('5'); break;
+                    case "110": sb.Append('6'); break;
+                    case "111": sb.Append('7'); break;
+                }
             }
 
             return sb.ToString();
