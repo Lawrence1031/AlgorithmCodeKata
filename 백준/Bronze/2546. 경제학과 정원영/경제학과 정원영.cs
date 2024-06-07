@@ -13,11 +13,11 @@ namespace _2546
                 string[] inputs = Console.ReadLine().Split(' ');
                 int N = int.Parse(inputs[0]);
                 int M = int.Parse(inputs[1]);
-                int[] CIQ = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-                int[] ecoIQ = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+                long[] CIQ = Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
+                long[] ecoIQ = Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
 
-                long CIQSum = CIQ.Select(x => (long)x).Sum();
-                long ecoIQSum = ecoIQ.Select(x => (long)x).Sum();
+                long CIQSum = CIQ.Sum();
+                long ecoIQSum = ecoIQ.Sum();
 
                 double CIQAver = (double)CIQSum / N;
                 double ecoIQAver = (double)ecoIQSum / M;
