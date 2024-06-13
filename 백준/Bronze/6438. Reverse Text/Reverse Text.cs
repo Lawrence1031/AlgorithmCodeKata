@@ -9,8 +9,16 @@ namespace _6438
             for (int i = 0; i < T; i++)
             {
                 string input = Console.ReadLine();
-                string answer = new string(input.Reverse().ToArray());
+                //string answer = new string(input.Reverse().ToArray());
 
+                //Console.WriteLine(answer);
+
+                char[] reverseInput = new char[input.Length];
+                for (int j = 0; j < reverseInput.Length; j++)
+                {
+                    reverseInput[j] = input[reverseInput.Length - j - 1];
+                }
+                string answer = new string(reverseInput);
                 Console.WriteLine(answer);
             }
         }
