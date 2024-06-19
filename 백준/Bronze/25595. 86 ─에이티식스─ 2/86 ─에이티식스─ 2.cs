@@ -69,17 +69,5 @@ namespace _25595
         {
             return x >= 0 && x < N && y >= 0 && y < N;
         }
-
-        static void RemoveRegions(int x, int y, int dx, int dy, int[,] matrix, int N)
-        {
-            int[] adjX = { x + dx, x };
-            int[] adjY = { y, y + dy };
-
-            for (int i = 0; i < 2; i++)
-            {
-                if (IsInBounds(adjX[i], adjY[i], N) && matrix[adjX[i], adjY[i]] == 1)
-                    matrix[adjX[i], adjY[i]] = 0;
-            }
-        }
     }
 }
