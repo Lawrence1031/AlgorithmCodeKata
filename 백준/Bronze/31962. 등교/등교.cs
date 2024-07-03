@@ -7,8 +7,7 @@ namespace _31962
             string[] inputs = Console.ReadLine().Split(' ');
             int N = int.Parse(inputs[0]);
             int X = int.Parse(inputs[1]);
-            int maxLate = 0;
-            int maxTime = 0;
+            int maxLate = -1;
 
             for (int i = 0; i < N; i++)
             {
@@ -16,14 +15,13 @@ namespace _31962
                 int late = int.Parse(bus[0]);
                 int arrive = int.Parse(bus[1]);
 
-                if (maxTime < late + arrive && late + arrive <= X)
+                if (late + arrive <= X && late > maxLate)
                 {
-                    maxTime = late + arrive;
                     maxLate = late;
                 }
             }
 
-            Console.WriteLine(maxLate == 0 ? -1 : maxLate);
+            Console.WriteLine(maxLate);
         }
     }
 }
