@@ -8,17 +8,30 @@ namespace _1940
             int M = int.Parse(Console.ReadLine());
             int[] materials = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
-            HashSet<int> set = new HashSet<int>();
+            Array.Sort(materials);
+
+            int left = 0;
+            int right = N - 1;
             int cnt = 0;
 
-            foreach (int material in materials)
+            while (left < right)
             {
-                int number = M - material;
-                if (set.Contains(number))
+                int sum = materials[left] + materials[right];
+
+                if (sum == M)
                 {
                     cnt++;
+                    left++;
+                    right--;
                 }
-                set.Add(material);
+                else if (sum < M)
+                {
+                    left++;
+                }
+                else
+                {
+                    right--;
+                }
             }
 
             Console.WriteLine(cnt);
