@@ -8,17 +8,20 @@ namespace _1940
             int M = int.Parse(Console.ReadLine());
             int[] materials = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
+            HashSet<int> set = new HashSet<int>();
             int cnt = 0;
-            for (int i = 0; i < materials.Length; i++)
+
+            foreach (int material in materials)
             {
-                int number = M - materials[i];
-                if (materials.Contains(number))
+                int number = M - material;
+                if (set.Contains(number))
                 {
                     cnt++;
                 }
+                set.Add(material);
             }
 
-            Console.WriteLine(cnt / 2);
+            Console.WriteLine(cnt);
         }
     }
 }
