@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace _32068
 {
     internal class Program
@@ -5,6 +7,8 @@ namespace _32068
         static void Main(string[] args)
         {
             int T = int.Parse(Console.ReadLine());
+            StringBuilder sb = new StringBuilder();
+
             for (int i = 0; i < T; i++)
             {
                 string[] inputs = Console.ReadLine().Split(' ');
@@ -12,32 +16,14 @@ namespace _32068
                 int R = int.Parse(inputs[1]);
                 int S = int.Parse(inputs[2]);
 
-                int cnt = 0;
-                int find = 0;
-                int now = S;
+                int left = (S - L) * 2;
+                int right = (R - S - 1) * 2 + 1;
+                int answer = left < right ? left : right;
 
-                while (find < 2)
-                {
-                    if (now == L || now == R)
-                    {
-                        find++;
-                    }
-                    else
-                    {
-                        if (cnt % 2 == 0)
-                        {
-                            now += (cnt + 1);
-                        }
-                        else
-                        {
-                            now -= (cnt + 1);
-                        }
-                    }
-                    cnt++;
-                }
-
-                Console.WriteLine(cnt - 1);
+                sb.AppendLine((answer + 1).ToString());
             }
+
+            Console.WriteLine(sb.ToString());
         }
     }
 }
