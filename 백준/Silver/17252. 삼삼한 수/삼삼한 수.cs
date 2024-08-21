@@ -15,7 +15,7 @@ namespace _17252
 
             while (n > 0)
             {
-                long remainder = n % 3;
+                int remainder = n % 3;
                 if (remainder > 1)
                 {
                     return false;
