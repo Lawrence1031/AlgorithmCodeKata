@@ -20,8 +20,7 @@ namespace _7602
                 }
 
                 Console.WriteLine($"Machine {machineCnt}");
-                List<string> members = new List<string>();
-                int memberCnt = 0;
+                machineCnt++;
 
                 while (true)
                 {
@@ -32,7 +31,6 @@ namespace _7602
                     }
 
                     string name = inputs[0];
-                    members.Add(name);
                     int times = int.Parse(inputs[1]);
                     int usedEnergy = 0;
 
@@ -45,11 +43,8 @@ namespace _7602
                         usedEnergy += levels[level - 1] * cnt;
                     }
 
-                    Console.WriteLine($"{members[memberCnt]} {usedEnergy}");
-                    memberCnt++;
+                    Console.WriteLine($"{name} {usedEnergy}");
                 }
-
-                machineCnt++;
             }
         }
     }
