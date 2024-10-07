@@ -11,23 +11,43 @@ namespace _27466
             int M = int.Parse(inputs[1]);
             string S = Console.ReadLine();
 
-            char[] consonants = "BCDFGHJKLMNPQRSTVWXYZ".ToArray();
+            HashSet<char> consonants = new HashSet<char>("BCDFGHJKLMNPQRSTVWXYZ");
+            List<int> AIdx = new List<int>();
+
+            for (int i = 0; i < N; i++)
+            {
+                if (S[i] == 'A')
+                {
+                    AIdx.Add(i);
+                }
+            }
+            
+            if (AIdx.Count < 2)
+            {
+                Console.WriteLine("NO");
+                return;
+            }
 
             StringBuilder sb = new StringBuilder();
 
-            for (int i = N - 1; i >= 0; i--)
+            for (int i = 0; i < AIdx[AIdx.Count - 2]; i++)
             {
-                if (Array.Exists(consonants, c => c == S[i]) && sb.Length == 0)
+                sb.Append(S[i]);
+
+                if (sb.Length == M - 3)
                 {
-                    sb.Insert(0, S[i]);
+                    break;
                 }
-                else if (sb.Length > 0 && sb.Length < 3 && S[i] == 'A')
+            }
+
+            sb.Append("AA");
+
+            for (int i = AIdx[AIdx.Count - 1]; i < N; i++)
+            {
+                if (consonants.Contains(S[i]))
                 {
-                    sb.Insert(0, 'A');
-                }
-                else if (sb.Length >= 3 && sb.Length < M)
-                {
-                    sb.Insert(0, S[i]);
+                    sb.Append(S[i]);
+                    break;
                 }
             }
 
