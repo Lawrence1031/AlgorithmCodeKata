@@ -13,15 +13,20 @@ namespace _12971
             int X2 = numbers[4];
             int X3 = numbers[5];
 
+            int N = X1;
+            int step = P1;
+
             // N % P1 = X1, N % P2 = X2, N % P3 = X3
 
-            for (int i = 1; i < 1000000000; i++)
+            while (N < 1000000000)
             {
-                if (i % P1 == X1 &&  i % P2 == X2 && i % P3 == X3)
+                if (N % P2 == X2 && N % P3 == X3)
                 {
-                    Console.WriteLine(i);
+                    Console.WriteLine(N);
                     return;
                 }
+
+                N += step;
             }
 
             Console.WriteLine(-1);
