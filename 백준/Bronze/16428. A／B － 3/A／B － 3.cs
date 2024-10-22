@@ -15,15 +15,15 @@ namespace _16428
 
             if (D < 0)
             {
-                if (C < 0)
+                if (B > 0)
                 {
                     C--;
-                    D -= C;
+                    D += B;
                 }
                 else
                 {
                     C++;
-                    D += C;
+                    D -= B;
                 }
             }
 
