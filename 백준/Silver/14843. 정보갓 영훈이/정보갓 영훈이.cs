@@ -19,18 +19,15 @@ namespace _14843
             }
 
             int P = int.Parse(Console.ReadLine());
-            List<double> scores = new List<double>();
+            int rank = 1;
 
             for (int i = 0; i < P; i++)
             {
-                double R = double.Parse(Console.ReadLine());
-                scores.Add(R);
+                double score = double.Parse(Console.ReadLine());
+                if (totalScore < score) rank++;
             }
 
-            scores.Add(totalScore);
-            scores = scores.OrderByDescending(x => x).ToList();
-            int rank = scores.IndexOf(totalScore) + 1;
-            double markPoint = (double)rank / scores.Count * 100;
+            double markPoint = (double)rank / (P + 1) * 100;
 
             if (markPoint <= 15)
             {
